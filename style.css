@@ -172,6 +172,64 @@ body {
     padding-left: 1.2rem;
 }
 
+/* 下拉式選單樣式 */
+.dropdown-menu {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-toggle .arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.dropdown-menu:hover .arrow,
+.dropdown-menu.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding-left: 0.5rem;
+}
+
+.dropdown-menu:hover .dropdown-content,
+.dropdown-menu.active .dropdown-content {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 0.3rem;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+}
+
+.dropdown-link:hover {
+    background: #e8dfd5;
+    padding-left: 1rem;
+    color: var(--primary-color);
+}
+
 section {
     margin-bottom: 3rem;
 }
@@ -530,6 +588,154 @@ section h3 {
     font-size: 0.95rem;
 }
 
+/* 作品集區塊 */
+.portfolio-section {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.portfolio-item {
+    background: #fffaf0;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #c19a6b;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item:last-child {
+    margin-bottom: 0;
+}
+
+.portfolio-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+}
+
+.portfolio-summary::-webkit-details-marker {
+    display: none;
+}
+
+.portfolio-summary::marker {
+    display: none;
+}
+
+.portfolio-summary .summary-text {
+    flex: 1;
+}
+
+.portfolio-title {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 600;
+}
+
+.portfolio-summary .date {
+    background: #c19a6b;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.portfolio-details {
+    padding: 0 2rem 1.5rem 2rem;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio-description {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.portfolio-link {
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-link a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #c19a6b, #d4a574);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(193, 154, 107, 0.3);
+}
+
+.portfolio-link a:hover {
+    background: linear-gradient(135deg, #d4a574, #c19a6b);
+    box-shadow: 0 4px 15px rgba(193, 154, 107, 0.5);
+    transform: translateY(-2px);
+}
+
+.portfolio-role {
+    background: #f5f5dc;
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.portfolio-role strong {
+    color: var(--primary-color);
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.portfolio-role ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.portfolio-role li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.portfolio-role li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #c19a6b;
+    font-weight: bold;
+}
+
 /* 尾部樣式 */
 .footer {
     background: var(--primary-color);
@@ -577,6 +783,36 @@ section h3 {
         border-radius: 20px;
         background: #e8ddf7;
         border-bottom: 2px solid var(--secondary-color);
+    }
+
+    /* 響應式下拉選單 */
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        background: #f0ebe5;
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+    }
+
+    .dropdown-menu.active .dropdown-content,
+    .dropdown-menu:hover .dropdown-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        max-height: none;
+        opacity: 1;
+    }
+
+    .dropdown-link {
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        background: #e8ddf7;
+        font-size: 0.8rem;
     }
 
     .header {
