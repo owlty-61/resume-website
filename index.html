@@ -20,37 +20,39 @@
             <p class="subtitle">展示您的專業形象</p>
         </header>
 
-        <main class="main-content">
-            <!-- 側邊欄目錄 -->
-            <aside class="main-content-sidebar">
-                <nav class="sidebar-nav">
-                    <ul class="sidebar-menu">
-                        <li><a href="#profile-section" class="sidebar-link">個人資料</a></li>
-                        <li><a href="#traits-section" class="sidebar-link">性格特質</a></li>
-                        <li><a href="#skills-section" class="sidebar-link">技能</a></li>
-                        <li><a href="#education-section" class="sidebar-link">學歷</a></li>
-                        <li class="dropdown-menu">
-                            <a href="#experience-section" class="sidebar-link dropdown-toggle">學經歷 <span class="arrow">▼</span></a>
-                            <ul class="dropdown-content">
-                                <li><a href="#exp-1" class="dropdown-link">程式設計競賽</a></li>
-                                <li><a href="#exp-2" class="dropdown-link">創意應用開發</a></li>
-                                <li><a href="#exp-3" class="dropdown-link">多益英文檢定</a></li>
-                                <li><a href="#exp-4" class="dropdown-link">桌遊社社長</a></li>
-                                <li><a href="#exp-5" class="dropdown-link">英語歌唱比賽</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-menu">
-                            <a href="#portfolio-section" class="sidebar-link dropdown-toggle">作品集 <span class="arrow">▼</span></a>
-                            <ul class="dropdown-content">
-                                <li><a href="#portfolio-1" class="dropdown-link">新莊老街專訪</a></li>
-                                <li><a href="#portfolio-2" class="dropdown-link">彈珠彈射實驗</a></li>
-                                <li><a href="#portfolio-3" class="dropdown-link">Arduino澆水裝置</a></li>
-                            </ul>
-                        </li>
+        <!-- 頂部導航目錄 -->
+        <nav class="top-navigation">
+            <ul class="nav-list">
+                <li><a href="#profile-section" class="nav-link">個人資料</a></li>
+                <li><a href="#traits-section" class="nav-link">性格特質</a></li>
+                <li><a href="#skills-section" class="nav-link">技能</a></li>
+                <li><a href="#education-section" class="nav-link">學歷</a></li>
+                
+                <!-- 學經歷下拉選單 -->
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">學經歷 ▼</button>
+                    <ul class="nav-dropdown-content">
+                        <li><a href="#exp-1" class="nav-dropdown-link">程式設計競賽</a></li>
+                        <li><a href="#exp-2" class="nav-dropdown-link">創意應用開發</a></li>
+                        <li><a href="#exp-3" class="nav-dropdown-link">多益英文檢定</a></li>
+                        <li><a href="#exp-4" class="nav-dropdown-link">桌遊社社長</a></li>
+                        <li><a href="#exp-5" class="nav-dropdown-link">英語歌唱比賽</a></li>
                     </ul>
-                </nav>
-            </aside>
+                </li>
+                
+                <!-- 作品集下拉選單 -->
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">作品集 ▼</button>
+                    <ul class="nav-dropdown-content">
+                        <li><a href="#portfolio-1" class="nav-dropdown-link">新莊老街專訪</a></li>
+                        <li><a href="#portfolio-2" class="nav-dropdown-link">彈珠彈射實驗</a></li>
+                        <li><a href="#portfolio-3" class="nav-dropdown-link">Arduino澆水裝置</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
+        <main class="main-content">
             <div class="main-content-left">
                 <!-- 個人資訊區塊 -->
                 <section class="profile-section" id="profile-section">
