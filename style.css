@@ -130,9 +130,31 @@ body {
     padding: 1.5rem;
     border-radius: 8px;
     height: fit-content;
-    position: sticky;
+    position: fixed;
+    right: calc((100vw - 1200px) / 2 + 1.5rem);
     top: 20px;
-    max-width: 100%;
+    max-width: 220px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* 側邊欄滾動條樣式 */
+.main-content-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-content-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-content-sidebar::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+.main-content-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
 }
 
 .main-content-left {
@@ -768,6 +790,9 @@ section h3 {
         background: transparent;
         padding: 0;
         top: auto;
+        right: auto;
+        max-height: none;
+        overflow-y: visible;
     }
 
     .sidebar-menu {

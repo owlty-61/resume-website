@@ -1,5 +1,52 @@
 // ============================================
-// 1. 圖片放大功能
+// 1. 側邊欄滾動跟隨功能
+// ============================================
+
+const sidebar = document.querySelector('.main-content-sidebar');
+const container = document.querySelector('.container');
+
+function updateSidebarPosition() {
+    if (!sidebar || !container) return;
+    
+    const scrollTop = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const sidebarHeight = sidebar.offsetHeight;
+    const containerRect = container.getBoundingClientRect();
+    const containerTop = container.offsetTop;
+    const containerBottom = containerTop + container.offsetHeight;
+    
+    // 計算側邊欄的top位置
+    let sidebarTop = Math.max(20, Math.min(
+        scrollTop + 20,
+        containerBottom - sidebarHeight - 20
+    ));
+    
+    // 確保側邊欄不超出容器頂部
+    sidebarTop = Math.max(sidebarTop, containerTop + 20);
+    
+    // 確保側邊欄底部不超出視窗底部
+    const maxTop = scrollTop + viewportHeight - sidebarHeight - 20;
+    sidebarTop = Math.min(sidebarTop, maxTop);
+    
+    // 確保側邊欄不超出容器底部
+    if (sidebarTop + sidebarHeight > containerBottom - 20) {
+        sidebarTop = containerBottom - sidebarHeight - 20;
+    }
+    
+    sidebar.style.top = sidebarTop + 'px';
+}
+
+// 監聽滾動和視窗大小變化
+window.addEventListener('scroll', updateSidebarPosition);
+window.addEventListener('resize', updateSidebarPosition);
+
+// 初始化位置
+document.addEventListener('DOMContentLoaded', () => {
+    updateSidebarPosition();
+});
+
+// ============================================
+// 2. 圖片放大功能
 // ============================================
 
 const profilePhoto = document.getElementById('profilePhoto');
@@ -41,7 +88,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================
-// 2. 側邊欄平滑滾動功能
+// 3. 側邊欄平滑滾動功能
 // ============================================
 
 const sidebarLinks = document.querySelectorAll('.sidebar-link');
@@ -61,7 +108,7 @@ sidebarLinks.forEach(link => {
 });
 
 // ============================================
-// 3. 技能區塊卷軸功能
+// 4. 技能區塊卷軸功能
 // ============================================
 
 const skillsContainer = document.querySelector('.skills-container');
@@ -87,7 +134,7 @@ if (skillsContainer) {
 }
 
 // ============================================
-// 4. 下拉選單互動功能
+// 5. 下拉選單互動功能
 // ============================================
 
 const dropdownToggle = document.querySelector('.dropdown-toggle');
