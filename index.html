@@ -7,24 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 導航菜單 -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-title">個人履歷</div>
-            <ul class="navbar-menu">
-                <li><a href="#profile-section" class="nav-link">個人資料</a></li>
-                <li><a href="#traits-section" class="nav-link">性格特質</a></li>
-                <li><a href="#skills-section" class="nav-link">技能</a></li>
-                <li><a href="#experience-section" class="nav-link">學經歷</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
     <!-- 圖片放大模態框 -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
@@ -39,11 +21,25 @@
         </header>
 
         <main class="main-content">
-            <!-- 個人資訊區塊 -->
-            <section class="profile-section" id="profile-section">
+            <!-- 側邊欄目錄 -->
+            <aside class="main-content-sidebar">
+                <nav class="sidebar-nav">
+                    <ul class="sidebar-menu">
+                        <li><a href="#profile-section" class="sidebar-link">個人資料</a></li>
+                        <li><a href="#traits-section" class="sidebar-link">性格特質</a></li>
+                        <li><a href="#skills-section" class="sidebar-link">技能</a></li>
+                        <li><a href="#experience-section" class="sidebar-link">學經歷</a></li>
+                        <li><a href="#education-section" class="sidebar-link">學歷</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="main-content-left">
+                <!-- 個人資訊區塊 -->
+                <section class="profile-section" id="profile-section">
                 <div class="profile-card">
                     <div class="profile-header">
-                        <img src="https://via.placeholder.com/150" alt="個人照片" class="profile-photo" id="profilePhoto">
+                        <img src="C:\Users\irisc\OneDrive\桌面\圖\resume-website\images\下載.jpg" alt="個人照片" class="profile-photo" id="profilePhoto">
                         <div class="profile-info">
                             <h2 class="name">陳姸希</h2>
                             <p class="email"><strong>Email：</strong><a href="irisc4863@gmail.com">irisc4863@gmail.com</a></p>
@@ -217,7 +213,7 @@
             </section>
 
             <!-- 學歷區塊 -->
-            <section class="education-section">
+            <section class="education-section" id="education-section">
                 <h3>學歷</h3>
                 <div class="education-item">
                     <div class="education-header">
@@ -237,6 +233,7 @@
                     <p class="gpa">全校排名前9%</p>
                 </div>
             </section>
+            </div>
         </main>
 
         <footer class="footer">

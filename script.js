@@ -1,26 +1,5 @@
 // ============================================
-// 1. 導航菜單功能
-// ============================================
-
-const hamburger = document.getElementById('hamburger');
-const navbarMenu = document.querySelector('.navbar-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navbarMenu.classList.toggle('active');
-});
-
-// 點擊導航菜單項時關閉菜單
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navbarMenu.classList.remove('active');
-    });
-});
-
-// ============================================
-// 2. 圖片放大功能
+// 1. 圖片放大功能
 // ============================================
 
 const profilePhoto = document.getElementById('profilePhoto');
@@ -29,17 +8,21 @@ const modalImage = document.getElementById('modalImage');
 const closeBtn = document.querySelector('.close');
 
 // 點擊照片時顯示放大版本
-profilePhoto.addEventListener('click', () => {
-    imageModal.classList.add('show');
-    modalImage.src = profilePhoto.src;
-    document.body.style.overflow = 'hidden';
-});
+if (profilePhoto) {
+    profilePhoto.addEventListener('click', () => {
+        imageModal.classList.add('show');
+        modalImage.src = profilePhoto.src;
+        document.body.style.overflow = 'hidden';
+    });
+}
 
 // 點擊關閉按鈕時關閉模態框
-closeBtn.addEventListener('click', () => {
-    imageModal.classList.remove('show');
-    document.body.style.overflow = 'auto';
-});
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        imageModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+}
 
 // 點擊模態框外部時關閉
 imageModal.addEventListener('click', (e) => {
@@ -58,11 +41,11 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================
-// 3. 平滑滾動功能
+// 2. 側邊欄平滑滾動功能
 // ============================================
 
-// 為所有導航鏈接添加平滑滾動
-navLinks.forEach(link => {
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
+sidebarLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
@@ -78,35 +61,30 @@ navLinks.forEach(link => {
 });
 
 // ============================================
-// 4. 技能區塊卷軸功能
+// 3. 技能區塊卷軸功能
 // ============================================
 
 const skillsContainer = document.querySelector('.skills-container');
 
-// 為技能卷軸添加鍵盤導航
-skillsContainer.addEventListener('keydown', (e) => {
-    const scrollAmount = 300;
-    
-    if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        skillsContainer.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        skillsContainer.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    }
-});
-
-// （移除原學經歷橫向卷軸功能，改為垂直點擊展開樣式，故不再需要 JS 控制）
-
-// ============================================
-// 5. 延遲加載動畫
-// ============================================
+if (skillsContainer) {
+    skillsContainer.addEventListener('keydown', (e) => {
+        const scrollAmount = 300;
+        
+        if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            skillsContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            skillsContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
 
 // 使用 Intersection Observer 實現元素進入視口時的動畫
 const observerOptions = {
@@ -160,47 +138,7 @@ skillBars.forEach(bar => {
 });
 
 // ============================================
-// 7. 主題切換功能 (可選)
-// ============================================
-
-// 檢查系統偏好或本地存儲的主題
-function initializeTheme() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-    
-    // 目前使用亮色主題，可在此添加深色模式支持
-    document.documentElement.setAttribute('data-theme', theme);
-}
-
-// ============================================
-// 8. 響應式菜單自動關閉
-// ============================================
-
-// 監聽窗口大小變化
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navbarMenu.classList.remove('active');
-    }
-});
-
-// ============================================
-// 9. 頁面加載完成後的初始化
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    // 添加加載完成的標記
-    document.body.classList.add('loaded');
-    
-    // 初始化主題
-    initializeTheme();
-    
-    console.log('履歷網頁已加載完成！');
-});
-
-// ============================================
-// 10. 性格特質標籤動畫
+// 6. 性格特質標籤動畫
 // ============================================
 
 const traitTags = document.querySelectorAll('.trait-tag');
@@ -228,3 +166,12 @@ if (!document.querySelector('style[data-animation]')) {
     `;
     document.head.appendChild(style);
 }
+
+// ============================================
+// 7. 頁面加載完成後的初始化
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+    console.log('履歷網頁已加載完成！');
+});

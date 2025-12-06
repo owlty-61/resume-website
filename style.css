@@ -5,123 +5,35 @@
 }
 
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-bg: #ecf0f1;
-    --text-color: #2c3e50;
-    --border-color: #bdc3c7;
-    --success-color: #27ae60;
+    --primary-color: #5d4037;
+    --secondary-color: #8d6e63;
+    --accent-color: #a1887f;
+    --light-bg: #f5f5dc;
+    --text-color: #4e342e;
+    --border-color: #d7ccc8;
+    --success-color: #9e8071;
     --padding-base: 1.5rem;
     --transition: all 0.3s ease;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
     color: var(--text-color);
     line-height: 1.6;
     padding: 20px;
-    padding-top: 80px;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: #faf8f3;
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
-/* 導航菜單樣式 */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
-
-.navbar-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar-title {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.navbar-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
-}
-
-.nav-link:hover {
-    opacity: 0.8;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    transition: var(--transition);
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-}
+/* 導航菜單樣式 - 已移除 */
 
 /* 模態框樣式 */
 .modal {
@@ -206,6 +118,58 @@ body {
 /* 主內容區域 */
 .main-content {
     padding: var(--padding-base);
+    display: flex;
+    gap: 2rem;
+    flex-direction: row-reverse;
+}
+
+.main-content-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #f0ebe5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    max-width: 100%;
+}
+
+.main-content-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-nav {
+    position: relative;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.sidebar-link:hover {
+    background: #e8dfd5;
+    border-left-color: var(--secondary-color);
+    padding-left: 1.2rem;
 }
 
 section {
@@ -229,7 +193,7 @@ section h3 {
 }
 
 .profile-card {
-    background: white;
+    background: #fffaf0;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -301,19 +265,20 @@ section h3 {
 }
 
 .trait-tag {
-    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    background: linear-gradient(135deg, #c19a6b, #d4a574);
     color: white;
     padding: 0.6rem 1.2rem;
     border-radius: 25px;
     font-size: 0.95rem;
     font-weight: 500;
     transition: var(--transition);
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 2px 8px rgba(193, 154, 107, 0.3);
 }
 
 .trait-tag:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 5px 15px rgba(193, 154, 107, 0.4);
+    background: linear-gradient(135deg, #d4a574, #ddb892);
 }
 
 /* 技能區塊 */
@@ -351,7 +316,7 @@ section h3 {
 }
 
 .skill-item {
-    background: white;
+    background: #fffaf0;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -436,12 +401,12 @@ section h3 {
 }
 
 .experience-item {
-    background: white;
+    background: #fffaf0;
     padding: 1rem 1.25rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
-    border: 1px solid #e5e7eb;
+    border: 1px solid #d7ccc8;
 }
 
 .experience-item[open] {
@@ -527,7 +492,7 @@ section h3 {
 }
 
 .education-item {
-    background: white;
+    background: #fffaf0;
     padding: 1.5rem;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -580,12 +545,38 @@ section h3 {
         border-radius: 10px;
     }
 
-    .navbar-menu {
-        gap: 1.5rem;
+    .main-content {
+        flex-direction: column-reverse;
+        gap: 1rem;
     }
 
-    .nav-link {
-        font-size: 0.9rem;
+    .main-content-sidebar {
+        width: 100%;
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0;
+        top: auto;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 0;
+    }
+
+    .sidebar-link {
+        padding: 0.5rem 1rem;
+        border-left: none;
+        border-radius: 20px;
+        background: #e8ddf7;
+        border-bottom: 2px solid var(--secondary-color);
     }
 
     .header {
@@ -628,74 +619,104 @@ section h3 {
     section h3 {
         font-size: 1.5rem;
     }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .navbar-menu {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--primary-color);
-        flex-direction: column;
-        gap: 1rem;
-        padding: 2rem;
-        display: none;
-        width: 100%;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .nav-link::after {
-        display: none;
-    }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-        padding-top: 70px;
-    }
-
-    .navbar-container {
+    .container {
         padding: 1rem;
-    }
-
-    .navbar-title {
-        font-size: 1.2rem;
-    }
-
-    .header h1 {
-        font-size: 1.5rem;
     }
 
     .header {
         padding: 1.5rem 1rem;
     }
 
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
     .main-content {
         padding: 1rem;
+        flex-direction: column-reverse;
+    }
+
+    .main-content-sidebar {
+        width: 100%;
+        position: static;
+        gap: 0.3rem;
+        background: #f0ebe5;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-menu {
+        gap: 0.3rem;
+    }
+
+    .sidebar-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    section {
+        padding: 1.5rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
 
     .name {
         font-size: 1.5rem;
     }
 
-    section {
-        margin-bottom: 2rem;
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .traits-container {
+        gap: 0.5rem;
+        justify-content: center;
     }
 
     .trait-tag {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .skill-item {
+        padding: 1rem;
         min-width: 250px;
+    }
+
+    .skill-bar {
+        height: 6px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .education-header {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .date {
+        font-size: 0.85rem;
     }
 
     .close {
