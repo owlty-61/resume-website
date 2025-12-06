@@ -28,7 +28,17 @@
                         <li><a href="#profile-section" class="sidebar-link">個人資料</a></li>
                         <li><a href="#traits-section" class="sidebar-link">性格特質</a></li>
                         <li><a href="#skills-section" class="sidebar-link">技能</a></li>
-                        <li><a href="#experience-section" class="sidebar-link">學經歷</a></li>
+                        <li><a href="#education-section" class="sidebar-link">學歷</a></li>
+                        <li class="dropdown-menu">
+                            <a href="#experience-section" class="sidebar-link dropdown-toggle">學經歷 <span class="arrow">▼</span></a>
+                            <ul class="dropdown-content">
+                                <li><a href="#exp-1" class="dropdown-link">程式設計競賽</a></li>
+                                <li><a href="#exp-2" class="dropdown-link">創意應用開發</a></li>
+                                <li><a href="#exp-3" class="dropdown-link">多益英文檢定</a></li>
+                                <li><a href="#exp-4" class="dropdown-link">桌遊社社長</a></li>
+                                <li><a href="#exp-5" class="dropdown-link">英語歌唱比賽</a></li>
+                            </ul>
+                        </li>
                         <li class="dropdown-menu">
                             <a href="#portfolio-section" class="sidebar-link dropdown-toggle">作品集 <span class="arrow">▼</span></a>
                             <ul class="dropdown-content">
@@ -37,7 +47,6 @@
                                 <li><a href="#portfolio-3" class="dropdown-link">Arduino澆水裝置</a></li>
                             </ul>
                         </li>
-                        <li><a href="#education-section" class="sidebar-link">學歷</a></li>
                     </ul>
                 </nav>
             </aside>
@@ -134,15 +143,39 @@
                 </div>
             </section>
 
+            <!-- 學歷區塊 -->
+            <section class="education-section" id="education-section">
+                <h3>學歷</h3>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h5>醫學資訊與應用創新學士學位學程</h5>
+                        <span class="date">2025 - 現在</span>
+                    </div>
+                    <p class="school">私立天主教輔仁大學</p>
+                    <p class="gpa">GPA: 3.8/4.0</p>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-header">
+                        <h5>高中</h5>
+                        <span class="date">2023 - 2025</span>
+                    </div>
+                    <p class="school">私立金陵女子高級中學</p>
+                    <p class="gpa">全校排名前9%</p>
+                </div>
+            </section>
+
             <!-- 學經歷區塊 -->
             <section class="experience-section" id="experience-section">
                 <h3>學經歷</h3>
 
                 <!-- 競賽/專案 -->
-                <div class="experience-category">
-                    <h4 class="category-title">高國中競賽與專案</h4>
+                <details class="experience-category" open>
+                    <summary class="category-summary">
+                        <h4 class="category-title">高國中競賽與專案</h4>
+                    </summary>
                     <div class="experience-list">
-                        <details class="experience-item" open>
+                        <details class="experience-item" id="exp-1" open>
                             <summary class="experience-summary">
                                 <div class="summary-text">
                                     <h5>全國高中生程式設計競賽</h5>
@@ -157,7 +190,7 @@
                             </ul>
                         </details>
 
-                        <details class="experience-item">
+                        <details class="experience-item" id="exp-2">
                             <summary class="experience-summary">
                                 <div class="summary-text">
                                     <h5>校園創意應用開發賽</h5>
@@ -172,7 +205,7 @@
                             </ul>
                         </details>
 
-                        <details class="experience-item">
+                        <details class="experience-item" id="exp-3">
                             <summary class="experience-summary">
                                 <div class="summary-text">
                                     <h5>多益英文檢定</h5>
@@ -187,7 +220,7 @@
                             </ul>
                         </details>
 
-                        <details class="experience-item">
+                        <details class="experience-item" id="exp-4">
                             <summary class="experience-summary">
                                 <div class="summary-text">
                                     <h5>桌遊社社長</h5>
@@ -202,7 +235,7 @@
                             </ul>
                         </details>
 
-                        <details class="experience-item">
+                        <details class="experience-item" id="exp-5">
                             <summary class="experience-summary">
                                 <div class="summary-text">
                                     <h5>英語歌唱比賽</h5>
@@ -217,7 +250,7 @@
                             </ul>
                         </details>
                     </div>
-                </div>
+                </details>
             </section>
 
             <!-- 作品集區塊 -->
@@ -302,28 +335,6 @@
                         </div>
                     </div>
                 </details>
-            </section>
-
-            <!-- 學歷區塊 -->
-            <section class="education-section" id="education-section">
-                <h3>學歷</h3>
-                <div class="education-item">
-                    <div class="education-header">
-                        <h5>醫學資訊與應用創新學士學位學程</h5>
-                        <span class="date">2025 - 現在</span>
-                    </div>
-                    <p class="school">私立天主教輔仁大學</p>
-                    <p class="gpa">GPA: 3.8/4.0</p>
-                </div>
-
-                <div class="education-item">
-                    <div class="education-header">
-                        <h5>高中</h5>
-                        <span class="date">2023 - 2025</span>
-                    </div>
-                    <p class="school">私立金陵女子高級中學</p>
-                    <p class="gpa">全校排名前9%</p>
-                </div>
             </section>
             </div>
         </main>

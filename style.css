@@ -208,7 +208,7 @@ body {
 
 .dropdown-menu:hover .dropdown-content,
 .dropdown-menu.active .dropdown-content {
-    max-height: 200px;
+    max-height: 300px;
     opacity: 1;
     margin-top: 0.3rem;
 }
@@ -514,6 +514,9 @@ section h3 {
     font-size: 0.85rem;
     font-weight: 600;
     white-space: nowrap;
+    min-width: 60px;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .company {
