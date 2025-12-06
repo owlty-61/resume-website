@@ -677,6 +677,29 @@ section h3 {
     font-size: 1rem;
 }
 
+.portfolio-link {
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-link a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #c19a6b, #d4a574);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(193, 154, 107, 0.3);
+}
+
+.portfolio-link a:hover {
+    background: linear-gradient(135deg, #d4a574, #c19a6b);
+    box-shadow: 0 4px 15px rgba(193, 154, 107, 0.5);
+    transform: translateY(-2px);
+}
+
 .portfolio-role {
     background: #f5f5dc;
     padding: 1.2rem;
