@@ -86,6 +86,43 @@ if (skillsContainer) {
     });
 }
 
+// ============================================
+// 4. 下拉選單互動功能
+// ============================================
+
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+if (dropdownToggle && dropdownMenu) {
+    // 點擊切換下拉選單
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('active');
+    });
+
+    // 點擊下拉選單內的連結後自動收起
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            // 收起下拉選單
+            setTimeout(() => {
+                dropdownMenu.classList.remove('active');
+            }, 300);
+        });
+    });
+}
+
 // 使用 Intersection Observer 實現元素進入視口時的動畫
 const observerOptions = {
     threshold: 0.1,

@@ -29,6 +29,14 @@
                         <li><a href="#traits-section" class="sidebar-link">性格特質</a></li>
                         <li><a href="#skills-section" class="sidebar-link">技能</a></li>
                         <li><a href="#experience-section" class="sidebar-link">學經歷</a></li>
+                        <li class="dropdown-menu">
+                            <a href="#portfolio-section" class="sidebar-link dropdown-toggle">作品集 <span class="arrow">▼</span></a>
+                            <ul class="dropdown-content">
+                                <li><a href="#portfolio-1" class="dropdown-link">新莊老街專訪</a></li>
+                                <li><a href="#portfolio-2" class="dropdown-link">彈珠彈射實驗</a></li>
+                                <li><a href="#portfolio-3" class="dropdown-link">Arduino澆水裝置</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#education-section" class="sidebar-link">學歷</a></li>
                     </ul>
                 </nav>
@@ -39,7 +47,7 @@
                 <section class="profile-section" id="profile-section">
                 <div class="profile-card">
                     <div class="profile-header">
-                        <img src="C:\Users\irisc\OneDrive\桌面\圖\resume-website\images\下載.jpg" alt="個人照片" class="profile-photo" id="profilePhoto">
+                        <img src="images/下載.jpg" alt="個人照片" class="profile-photo" id="profilePhoto">
                         <div class="profile-info">
                             <h2 class="name">陳姸希</h2>
                             <p class="email"><strong>Email：</strong><a href="irisc4863@gmail.com">irisc4863@gmail.com</a></p>
@@ -210,6 +218,80 @@
                         </details>
                     </div>
                 </div>
+            </section>
+
+            <!-- 作品集區塊 -->
+            <section class="portfolio-section" id="portfolio-section">
+                <h3>作品集</h3>
+                
+                <details class="portfolio-item" id="portfolio-1" open>
+                    <summary class="portfolio-summary">
+                        <div class="summary-text">
+                            <h4 class="portfolio-title">新莊老街百年小吃專題</h4>
+                        </div>
+                        <span class="date">2024</span>
+                    </summary>
+                    <div class="portfolio-details">
+                        <p class="portfolio-description">
+                            透過影片與簡報，呈現新莊老街百年小吃的歷史與文化。
+                            使用Canva和Capcut製作視覺設計，寫成一篇連貫的網頁小故事，讓更多人知道這些在地小吃。
+                        </p>
+                        <div class="portfolio-role">
+                            <strong>角色分工：</strong>
+                            <ul>
+                                <li>美術設計 - 設計簡報、網頁美編</li>
+                                <li>文案撰寫 - 撰寫故事及網站內容、影片文案</li>
+                                <li>影片剪輯 - 使用Capcut進行影片後製</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="portfolio-item" id="portfolio-2">
+                    <summary class="portfolio-summary">
+                        <div class="summary-text">
+                            <h4 class="portfolio-title">彈珠彈射實驗專題</h4>
+                        </div>
+                        <span class="date">2024</span>
+                    </summary>
+                    <div class="portfolio-details">
+                        <p class="portfolio-description">
+                            與組員合作進行彈珠彈射實驗，收集1000次數據並分析彈珠分布的關係。
+                            用Excel製作圖表，撰寫專題報告並在班上進行口頭發表。
+                        </p>
+                        <div class="portfolio-role">
+                            <strong>角色分工：</strong>
+                            <ul>
+                                <li>實驗設計 - 規劃彈珠彈射實驗流程與數據收集</li>
+                                <li>數據整理 - 整理實驗結果並製作圖表分析</li>
+                                <li>簡報製作 - 設計PowerPoint並擔任報告講者</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="portfolio-item" id="portfolio-3">
+                    <summary class="portfolio-summary">
+                        <div class="summary-text">
+                            <h4 class="portfolio-title">Arduino 自動澆水提醒裝置</h4>
+                        </div>
+                        <span class="date">2023</span>
+                    </summary>
+                    <div class="portfolio-details">
+                        <p class="portfolio-description">
+                            使用 Arduino Uno 製作盆栽自動澆水與光照提醒小裝置。
+                            結合土壤濕度感測器、光敏電阻與蜂鳴器，當土壤過乾或光照不足時會亮燈與發出提示音。
+                        </p>
+                        <div class="portfolio-role">
+                            <strong>角色分工：</strong>
+                            <ul>
+                                <li>硬體組裝 - 連接感測器、LED 與蜂鳴器，布線焊接與整理</li>
+                                <li>程式撰寫 - 編寫感測器讀值與提醒邏輯（閾值判斷、提示音控制）</li>
+                                <li>測試校正 - 反覆測濕度與光照閾值，優化提醒時間與亮燈音量</li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
             </section>
 
             <!-- 學歷區塊 -->
