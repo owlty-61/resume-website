@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷網頁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 導航菜單 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-title">個人履歷</div>
+            <ul class="navbar-menu">
+                <li><a href="#profile-section" class="nav-link">個人資料</a></li>
+                <li><a href="#traits-section" class="nav-link">性格特質</a></li>
+                <li><a href="#skills-section" class="nav-link">技能</a></li>
+                <li><a href="#experience-section" class="nav-link">學經歷</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 圖片放大模態框 -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="放大圖片">
+    </div>
+
+    <!-- 顯示區域 -->
+    <div class="container">
+        <header class="header">
+            <h1>個人履歷</h1>
+            <p class="subtitle">展示您的專業形象</p>
+        </header>
+
+        <main class="main-content">
+            <!-- 個人資訊區塊 -->
+            <section class="profile-section" id="profile-section">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="https://via.placeholder.com/150" alt="個人照片" class="profile-photo" id="profilePhoto">
+                        <div class="profile-info">
+                            <h2 class="name">陳姸希</h2>
+                            <p class="email"><strong>Email：</strong><a href="irisc4863@gmail.com">irisc4863@gmail.com</a></p>
+                            <p class="phone"><strong>電話：</strong><a href="tel:+886901311601">+886 901-311-601</a></p>
+                            <p class="location"><strong>地點：</strong>新北市</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 性格特質標籤 -->
+                <div class="traits-section" id="traits-section">
+                    <h3>性格特質</h3>
+                    <div class="traits-container">
+                        <span class="trait-tag">領導力</span>
+                        <span class="trait-tag">創新思維</span>
+                        <span class="trait-tag">溝通能力</span>
+                        <span class="trait-tag">團隊合作</span>
+                        <span class="trait-tag">問題解決</span>
+                        <span class="trait-tag">自我驅動</span>
+                        <span class="trait-tag">責任心</span>
+                        <span class="trait-tag">適應力強</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 技能區塊 -->
+            <section class="skills-section" id="skills-section">
+                <h3>技能</h3>
+                <div class="skills-container">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">程式設計</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                        <p class="skill-description">JavaScript, Python, Java, C++</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">溝通能力</span>
+                            <span class="skill-level">89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 89%;"></div>
+                        </div>
+                        <p class="skill-description">簡報、書面表達、團隊溝通</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">團隊合作</span>
+                            <span class="skill-level">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%;"></div>
+                        </div>
+                        <p class="skill-description">協調、衝突解決、目標達成</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">前端開發</span>
+                            <span class="skill-level">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                        <p class="skill-description">HTML, CSS, React, Vue.js</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">後端開發</span>
+                            <span class="skill-level">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                        <p class="skill-description">Node.js, Django, MySQL</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 學經歷區塊 -->
+            <section class="experience-section" id="experience-section">
+                <h3>學經歷</h3>
+
+                <!-- 競賽/專案 -->
+                <div class="experience-category">
+                    <h4 class="category-title">高國中競賽與專案</h4>
+                    <div class="experience-list">
+                        <details class="experience-item" open>
+                            <summary class="experience-summary">
+                                <div class="summary-text">
+                                    <h5>全國高中生程式設計競賽</h5>
+                                    <p class="company">獲得銀牌</p>
+                                </div>
+                                <span class="date">2024</span>
+                            </summary>
+                            <ul class="experience-details">
+                                <li>與2位隊友解決10道算法問題</li>
+                                <li>在50隊競賽中排名前3</li>
+                                <li>展現快速問題分析和編程能力</li>
+                            </ul>
+                        </details>
+
+                        <details class="experience-item">
+                            <summary class="experience-summary">
+                                <div class="summary-text">
+                                    <h5>校園創意應用開發賽</h5>
+                                    <p class="company">獲得優選</p>
+                                </div>
+                                <span class="date">2023</span>
+                            </summary>
+                            <ul class="experience-details">
+                                <li>開發校園購物應用程式</li>
+                                <li>獲得評審好評與用戶高評分</li>
+                                <li>展現全棧開發和創新思維</li>
+                            </ul>
+                        </details>
+
+                        <details class="experience-item">
+                            <summary class="experience-summary">
+                                <div class="summary-text">
+                                    <h5>多益英文檢定</h5>
+                                    <p class="company">獲得725分</p>
+                                </div>
+                                <span class="date">高中</span>
+                            </summary>
+                            <ul class="experience-details">
+                                <li>通過國際英語能力測試</li>
+                                <li>掌握實用英文溝通技能</li>
+                                <li>為升學和國際交流奠定基礎</li>
+                            </ul>
+                        </details>
+
+                        <details class="experience-item">
+                            <summary class="experience-summary">
+                                <div class="summary-text">
+                                    <h5>桌遊社社長</h5>
+                                    <p class="company">社團領導</p>
+                                </div>
+                                <span class="date">高中</span>
+                            </summary>
+                            <ul class="experience-details">
+                                <li>領導桌遊社團，組織每週活動</li>
+                                <li>協調社員參加校內外競賽</li>
+                                <li>培養團隊合作和策略思維能力</li>
+                            </ul>
+                        </details>
+
+                        <details class="experience-item">
+                            <summary class="experience-summary">
+                                <div class="summary-text">
+                                    <h5>英語歌唱比賽</h5>
+                                    <p class="company">榮獲第一名</p>
+                                </div>
+                                <span class="date">國中</span>
+                            </summary>
+                            <ul class="experience-details">
+                                <li>參與國中英語歌唱比賽</li>
+                                <li>展現英文發音與表現力</li>
+                                <li>獲得比賽第一名佳績</li>
+                            </ul>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 學歷區塊 -->
+            <section class="education-section">
+                <h3>學歷</h3>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h5>醫學資訊與應用創新學士學位學程</h5>
+                        <span class="date">2025 - 現在</span>
+                    </div>
+                    <p class="school">私立天主教輔仁大學</p>
+                    <p class="gpa">GPA: 3.8/4.0</p>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-header">
+                        <h5>高中</h5>
+                        <span class="date">2023 - 2025</span>
+                    </div>
+                    <p class="school">私立金陵女子高級中學</p>
+                    <p class="gpa">全校排名前9%</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 陳姸希 的個人履歷。保留所有權利。</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
