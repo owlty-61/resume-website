@@ -100,32 +100,6 @@ document.addEventListener('click', function() {
     });
 });
 
-// ============================================
-// 4. 技能區塊卷軸功能
-// ============================================
-
-const skillsContainer = document.querySelector('.skills-container');
-
-if (skillsContainer) {
-    skillsContainer.addEventListener('keydown', (e) => {
-        const scrollAmount = 300;
-        
-        if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            skillsContainer.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        } else if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            skillsContainer.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    });
-}
-
 // 使用 Intersection Observer 實現元素進入視口時的動畫
 const observerOptions = {
     threshold: 0.1,

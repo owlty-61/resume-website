@@ -84,65 +84,80 @@
                 </div>
             </section>
 
-            <!-- 技能區塊 -->
+            <!-- 技能區塊：整體下拉 + 水平滑動卡片 -->
             <section class="skills-section" id="skills-section">
-                <h3>技能</h3>
-                <div class="skills-container">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">程式設計</span>
-                            <span class="skill-level">85%</span>
+                <details class="skills-accordion" open>
+                    <summary class="skills-accordion-summary">
+                        <h3>技能</h3>
+                        <span class="skills-accordion-icon">▾</span>
+                    </summary>
+                    <div class="skills-list">
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <div class="skill-title">程式設計</div>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 85%;"></div>
+                            </div>
+                            <div class="skill-body">
+                                <p>JavaScript, Python, Java, C++</p>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                        <p class="skill-description">JavaScript, Python, Java, C++</p>
-                    </div>
 
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">溝通能力</span>
-                            <span class="skill-level">89%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <div class="skill-title">溝通能力</div>
+                                <span class="skill-level">89%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 89%;"></div>
+                            </div>
+                            <div class="skill-body">
+                                <p>簡報、書面表達、團隊溝通</p>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 89%;"></div>
-                        </div>
-                        <p class="skill-description">簡報、書面表達、團隊溝通</p>
-                    </div>
 
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">團隊合作</span>
-                            <span class="skill-level">92%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <div class="skill-title">團隊合作</div>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 92%;"></div>
+                            </div>
+                            <div class="skill-body">
+                                <p>協調、衝突解決、目標達成</p>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%;"></div>
-                        </div>
-                        <p class="skill-description">協調、衝突解決、目標達成</p>
-                    </div>
 
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">前端開發</span>
-                            <span class="skill-level">80%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <div class="skill-title">前端開發</div>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 80%;"></div>
+                            </div>
+                            <div class="skill-body">
+                                <p>HTML, CSS, React, Vue.js</p>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
-                        <p class="skill-description">HTML, CSS, React, Vue.js</p>
-                    </div>
 
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">後端開發</span>
-                            <span class="skill-level">95%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-header">
+                                <div class="skill-title">後端開發</div>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 95%;"></div>
+                            </div>
+                            <div class="skill-body">
+                                <p>Node.js, Django, MySQL</p>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
-                        </div>
-                        <p class="skill-description">Node.js, Django, MySQL</p>
                     </div>
-                </div>
+                </details>
             </section>
 
             <!-- 學歷區塊 -->
@@ -236,44 +251,6 @@
                                 <li>培養團隊合作和策略思維能力</li>
                             </ul>
                         </details>
-
-                        <details class="experience-item" id="exp-5">
-                            <summary class="experience-summary">
-                                <div class="summary-text">
-                                    <h5>英語歌唱比賽</h5>
-                                    <p class="company">榮獲第一名</p>
-                                </div>
-                                <span class="date">國中</span>
-                            </summary>
-                            <ul class="experience-details">
-                                <li>參與國中英語歌唱比賽</li>
-                                <li>展現英文發音與表現力</li>
-                                <li>獲得比賽第一名佳績</li>
-                            </ul>
-                        </details>
-                    </div>
-                </details>
-            </section>
-
-            <!-- 作品集區塊 -->
-            <section class="portfolio-section" id="portfolio-section">
-                <h3>作品集</h3>
-                
-                <details class="portfolio-item" id="portfolio-1" open>
-                    <summary class="portfolio-summary">
-                        <div class="summary-text">
-                            <h4 class="portfolio-title">新莊老街百年小吃專題</h4>
-                        </div>
-                        <span class="date">2024</span>
-                    </summary>
-                    <div class="portfolio-details">
-                        <p class="portfolio-description">
-                            透過影片與簡報，呈現新莊老街百年小吃的歷史與文化。
-                            使用Canva和Capcut製作視覺設計，寫成一篇連貫的網頁小故事，讓更多人知道這些在地小吃。
-                        </p>
-                        <div class="portfolio-link">
-                            <a href="https://storymaps.arcgis.com/stories/5c7390f7812643b88e8d5f03d50e3026" target="_blank" rel="noopener noreferrer">
-                                🔗 查看完整作品
                             </a>
                         </div>
                         <div class="portfolio-role">
