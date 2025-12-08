@@ -89,30 +89,16 @@ if (navCollapseBtn && navList) {
 // 4. 頂部導航下拉選單功能
 // ============================================
 
-// 等待 DOM 完全載入後執行
 setTimeout(() => {
     const navDropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
-    const navDropdowns = document.querySelectorAll('.nav-dropdown');
     
-    console.log('========== 下拉選單初始化 ==========');
-    console.log('找到下拉按鈕數量:', navDropdownToggles.length);
-    console.log('找到下拉容器數量:', navDropdowns.length);
-    
-    navDropdownToggles.forEach((toggle, index) => {
-        console.log(`按鈕 ${index + 1}:`, toggle.textContent);
-        
+    navDropdownToggles.forEach((toggle) => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
-            console.log('>>> 點擊了:', this.textContent);
-            
             const dropdownContent = this.nextElementSibling;
-            console.log('>>> 找到內容元素:', dropdownContent);
-            console.log('>>> 內容元素類別:', dropdownContent.className);
-            
             const isActive = dropdownContent.classList.contains('active');
-            console.log('>>> 當前狀態 active:', isActive);
             
             // 關閉所有下拉選單
             document.querySelectorAll('.nav-dropdown-content').forEach(content => {
@@ -122,9 +108,6 @@ setTimeout(() => {
             // 切換當前下拉選單
             if (!isActive) {
                 dropdownContent.classList.add('active');
-                console.log('>>> 已展開，新類別:', dropdownContent.className);
-            } else {
-                console.log('>>> 已收合');
             }
         });
     });
@@ -137,9 +120,33 @@ setTimeout(() => {
             });
         }
     });
-    
-    console.log('========== 下拉選單初始化完成 ==========');
 }, 100);
+
+// ============================================
+// 4. 技能區塊卷軸功能
+// ============================================
+
+const skillsContainer = document.querySelector('.skills-container');
+
+if (skillsContainer) {
+    skillsContainer.addEventListener('keydown', (e) => {
+        const scrollAmount = 300;
+        
+        if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            skillsContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            skillsContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
 
 // 使用 Intersection Observer 實現元素進入視口時的動畫
 const observerOptions = {
@@ -228,5 +235,4 @@ if (!document.querySelector('style[data-animation]')) {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
-    console.log('履歷網頁已加載完成！');
 });
