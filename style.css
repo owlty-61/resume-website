@@ -128,6 +128,39 @@ body {
     padding: 0;
 }
 
+/* 目錄收起按鈕 */
+.nav-collapse-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.5rem 0 0.5rem 1rem;
+    border-radius: 8px;
+    max-width: 150px;
+}
+
+.nav-collapse-toggle:hover {
+    background: #f4d03f;
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.nav-collapse-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-collapse-toggle.collapsed .nav-collapse-icon {
+    transform: rotate(90deg);
+}
+
 .nav-list {
     list-style: none;
     padding: 0;
@@ -138,6 +171,16 @@ body {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.nav-list.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
 }
 
 .nav-list > li {
@@ -160,11 +203,7 @@ body {
     white-space: nowrap;
 }
 
-.nav-link:hover,
-.nav-dropdown-toggle:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
+/* hover 效果已移除 */
 
 /* 導航下拉選單 */
 .nav-dropdown {
@@ -183,12 +222,14 @@ body {
     list-style: none;
     padding: 0.5rem 0;
     margin: 0;
-    z-index: 1001;
+    z-index: 9999;
 }
 
-.nav-dropdown:hover .nav-dropdown-content,
+/* 點擊展開下拉選單 */
 .nav-dropdown-content.active {
-    display: block;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .nav-dropdown-content li {
@@ -204,11 +245,7 @@ body {
     font-size: 0.95rem;
 }
 
-.nav-dropdown-link:hover {
-    background: var(--light-bg);
-    color: var(--accent-color);
-    padding-left: 2rem;
-}
+/* hover 效果已移除 */
 
 /* 主內容區域 */
 .main-content {
@@ -289,7 +326,7 @@ section h3 {
 }
 
 .profile-info a:hover {
-    color: var(--accent-color);
+    color: #f4d03f;
     text-decoration: underline;
 }
 
@@ -323,8 +360,8 @@ section h3 {
 
 .trait-tag:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(193, 154, 107, 0.4);
-    background: linear-gradient(135deg, #d4a574, #ddb892);
+    box-shadow: 0 5px 15px rgba(244, 208, 63, 0.5);
+    background: linear-gradient(135deg, #f4d03f, #f9e79f);
 }
 
 /* 技能區塊：進度條 + 下拉 */
@@ -374,8 +411,9 @@ section h3 {
 }
 
 .skill-card:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 18px rgba(244, 208, 63, 0.4);
     transform: translateY(-1px);
+    border-color: #f4d03f;
 }
 
 .skill-card-header {
@@ -590,7 +628,8 @@ section h3 {
 }
 
 .education-item:hover {
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 20px rgba(244, 208, 63, 0.4);
+    border-left-color: #f4d03f;
 }
 
 .education-header {
@@ -638,7 +677,8 @@ section h3 {
 }
 
 .portfolio-item:hover {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 24px rgba(244, 208, 63, 0.4);
+    border-left-color: #f4d03f;
 }
 
 .portfolio-item:last-child {
@@ -725,9 +765,10 @@ section h3 {
 }
 
 .portfolio-link a:hover {
-    background: linear-gradient(135deg, #d4a574, #c19a6b);
-    box-shadow: 0 4px 15px rgba(193, 154, 107, 0.5);
+    background: linear-gradient(135deg, #f4d03f, #f9e79f);
+    box-shadow: 0 4px 15px rgba(244, 208, 63, 0.5);
     transform: translateY(-2px);
+    color: var(--primary-color);
 }
 
 .portfolio-role {

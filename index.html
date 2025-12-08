@@ -22,16 +22,19 @@
 
         <!-- 頂部導航目錄 -->
         <nav class="top-navigation">
-            <ul class="nav-list">
+            <button class="nav-collapse-toggle" id="navCollapseBtn">
+                <span class="nav-collapse-icon">☰</span>
+                <span class="nav-collapse-text">目錄</span>
+            </button>
+            <ul class="nav-list" id="navList">
                 <li><a href="#profile-section" class="nav-link">個人資料</a></li>
                 <li><a href="#traits-section" class="nav-link">性格特質</a></li>
                 <li><a href="#skills-section" class="nav-link">技能</a></li>
                 <li><a href="#education-section" class="nav-link">學歷</a></li>
-                
-                <!-- 學經歷下拉選單 -->
+                <!-- 學經歷下拉選單（點擊展開，無 hover） -->
                 <li class="nav-dropdown">
-                    <button class="nav-dropdown-toggle">學經歷 ▼</button>
-                    <ul class="nav-dropdown-content">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="exp-dropdown">學經歷 ▼</button>
+                    <ul class="nav-dropdown-content" id="exp-dropdown">
                         <li><a href="#exp-1" class="nav-dropdown-link">程式設計競賽</a></li>
                         <li><a href="#exp-2" class="nav-dropdown-link">創意應用開發</a></li>
                         <li><a href="#exp-3" class="nav-dropdown-link">多益英文檢定</a></li>
@@ -39,11 +42,10 @@
                         <li><a href="#exp-5" class="nav-dropdown-link">英語歌唱比賽</a></li>
                     </ul>
                 </li>
-                
-                <!-- 作品集下拉選單 -->
+                <!-- 作品集下拉選單（點擊展開，無 hover） -->
                 <li class="nav-dropdown">
-                    <button class="nav-dropdown-toggle">作品集 ▼</button>
-                    <ul class="nav-dropdown-content">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="portfolio-dropdown">作品集 ▼</button>
+                    <ul class="nav-dropdown-content" id="portfolio-dropdown">
                         <li><a href="#portfolio-1" class="nav-dropdown-link">新莊老街專訪</a></li>
                         <li><a href="#portfolio-2" class="nav-dropdown-link">彈珠彈射實驗</a></li>
                         <li><a href="#portfolio-3" class="nav-dropdown-link">Arduino澆水裝置</a></li>

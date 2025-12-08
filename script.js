@@ -61,44 +61,85 @@ navLinks.forEach(link => {
                 behavior: 'smooth'
             });
             
-            // 關閉下拉選單
+            // 延遲關閉下拉選單，讓跳轉完成
+            setTimeout(() => {
+                document.querySelectorAll('.nav-dropdown-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+            }, 300);
+        }
+    });
+});
+
+// ============================================
+// 3. 目錄收起功能
+// ============================================
+
+const navCollapseBtn = document.getElementById('navCollapseBtn');
+const navList = document.getElementById('navList');
+
+if (navCollapseBtn && navList) {
+    navCollapseBtn.addEventListener('click', function() {
+        navList.classList.toggle('collapsed');
+        navCollapseBtn.classList.toggle('collapsed');
+    });
+}
+
+// ============================================
+// 4. 頂部導航下拉選單功能
+// ============================================
+
+// 等待 DOM 完全載入後執行
+setTimeout(() => {
+    const navDropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+    const navDropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    console.log('========== 下拉選單初始化 ==========');
+    console.log('找到下拉按鈕數量:', navDropdownToggles.length);
+    console.log('找到下拉容器數量:', navDropdowns.length);
+    
+    navDropdownToggles.forEach((toggle, index) => {
+        console.log(`按鈕 ${index + 1}:`, toggle.textContent);
+        
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('>>> 點擊了:', this.textContent);
+            
+            const dropdownContent = this.nextElementSibling;
+            console.log('>>> 找到內容元素:', dropdownContent);
+            console.log('>>> 內容元素類別:', dropdownContent.className);
+            
+            const isActive = dropdownContent.classList.contains('active');
+            console.log('>>> 當前狀態 active:', isActive);
+            
+            // 關閉所有下拉選單
+            document.querySelectorAll('.nav-dropdown-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 切換當前下拉選單
+            if (!isActive) {
+                dropdownContent.classList.add('active');
+                console.log('>>> 已展開，新類別:', dropdownContent.className);
+            } else {
+                console.log('>>> 已收合');
+            }
+        });
+    });
+    
+    // 點擊外部關閉下拉選單
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-dropdown')) {
             document.querySelectorAll('.nav-dropdown-content').forEach(content => {
                 content.classList.remove('active');
             });
         }
     });
-});
-
-// ============================================
-// 3. 頂部導航下拉選單功能
-// ============================================
-
-const navDropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
-
-navDropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const dropdownContent = this.nextElementSibling;
-        const isActive = dropdownContent.classList.contains('active');
-        
-        // 關閉所有下拉選單
-        document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-            content.classList.remove('active');
-        });
-        
-        // 切換當前下拉選單
-        if (!isActive) {
-            dropdownContent.classList.add('active');
-        }
-    });
-});
-
-// 點擊外部關閉下拉選單
-document.addEventListener('click', function() {
-    document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-        content.classList.remove('active');
-    });
-});
+    
+    console.log('========== 下拉選單初始化完成 ==========');
+}, 100);
 
 // 使用 Intersection Observer 實現元素進入視口時的動畫
 const observerOptions = {
