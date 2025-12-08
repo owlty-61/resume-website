@@ -1,5 +1,52 @@
 // ============================================
-// 1. 圖片放大功能
+// 1. 側邊欄滾動跟隨功能
+// ============================================
+
+const sidebar = document.querySelector('.main-content-sidebar');
+const container = document.querySelector('.container');
+
+function updateSidebarPosition() {
+    if (!sidebar || !container) return;
+    
+    const scrollTop = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const sidebarHeight = sidebar.offsetHeight;
+    const containerRect = container.getBoundingClientRect();
+    const containerTop = container.offsetTop;
+    const containerBottom = containerTop + container.offsetHeight;
+    
+    // 計算側邊欄的top位置
+    let sidebarTop = Math.max(20, Math.min(
+        scrollTop + 20,
+        containerBottom - sidebarHeight - 20
+    ));
+    
+    // 確保側邊欄不超出容器頂部
+    sidebarTop = Math.max(sidebarTop, containerTop + 20);
+    
+    // 確保側邊欄底部不超出視窗底部
+    const maxTop = scrollTop + viewportHeight - sidebarHeight - 20;
+    sidebarTop = Math.min(sidebarTop, maxTop);
+    
+    // 確保側邊欄不超出容器底部
+    if (sidebarTop + sidebarHeight > containerBottom - 20) {
+        sidebarTop = containerBottom - sidebarHeight - 20;
+    }
+    
+    sidebar.style.top = sidebarTop + 'px';
+}
+
+// 監聽滾動和視窗大小變化
+window.addEventListener('scroll', updateSidebarPosition);
+window.addEventListener('resize', updateSidebarPosition);
+
+// 初始化位置
+document.addEventListener('DOMContentLoaded', () => {
+    updateSidebarPosition();
+});
+
+// ============================================
+// 2. 圖片放大功能
 // ============================================
 
 const profilePhoto = document.getElementById('profilePhoto');
@@ -41,23 +88,23 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============================================
-// 2. 頂部導航平滑滾動
+// 3. 側邊欄平滑滾動功能
 // ============================================
 
-const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
-
-navLinks.forEach(link => {
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
+sidebarLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
-            const navHeight = document.querySelector('.top-navigation').offsetHeight;
-            const targetPosition = targetSection.offsetTop - navHeight - 20;
+            const nav = document.querySelector('.top-navigation');
+            const navHeight = nav ? nav.offsetHeight : 0;
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
             
             window.scrollTo({
-                top: targetPosition,
+                top: Math.max(targetPosition, 0),
                 behavior: 'smooth'
             });
             
@@ -72,7 +119,38 @@ navLinks.forEach(link => {
 });
 
 // ============================================
-// 3. 目錄收起功能
+// 4. 頂部導航平滑滾動
+// ============================================
+
+const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            const nav = document.querySelector('.top-navigation');
+            const navHeight = nav ? nav.offsetHeight : 0;
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+            
+            window.scrollTo({
+                top: Math.max(targetPosition, 0),
+                behavior: 'smooth'
+            });
+            
+            setTimeout(() => {
+                document.querySelectorAll('.nav-dropdown-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+            }, 300);
+        }
+    });
+});
+
+// ============================================
+// 5. 目錄收起功能
 // ============================================
 
 const navCollapseBtn = document.getElementById('navCollapseBtn');
@@ -86,44 +164,7 @@ if (navCollapseBtn && navList) {
 }
 
 // ============================================
-// 4. 頂部導航下拉選單功能
-// ============================================
-
-setTimeout(() => {
-    const navDropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
-    
-    navDropdownToggles.forEach((toggle) => {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const dropdownContent = this.nextElementSibling;
-            const isActive = dropdownContent.classList.contains('active');
-            
-            // 關閉所有下拉選單
-            document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // 切換當前下拉選單
-            if (!isActive) {
-                dropdownContent.classList.add('active');
-            }
-        });
-    });
-    
-    // 點擊外部關閉下拉選單
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav-dropdown')) {
-            document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-                content.classList.remove('active');
-            });
-        }
-    });
-}, 100);
-
-// ============================================
-// 4. 技能區塊卷軸功能
+// 6. 技能區塊卷軸功能
 // ============================================
 
 const skillsContainer = document.querySelector('.skills-container');
@@ -145,6 +186,47 @@ if (skillsContainer) {
                 behavior: 'smooth'
             });
         }
+    });
+}
+
+// ============================================
+// 7. 下拉選單互動功能
+// ============================================
+
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+
+if (dropdownToggle && dropdownMenu) {
+    // 點擊切換下拉選單
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('active');
+    });
+
+    // 點擊下拉選單內的連結後自動收起
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const nav = document.querySelector('.top-navigation');
+                const navHeight = nav ? nav.offsetHeight : 0;
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                
+                window.scrollTo({
+                    top: Math.max(targetPosition, 0),
+                    behavior: 'smooth'
+                });
+            }
+            
+            // 收起下拉選單
+            setTimeout(() => {
+                dropdownMenu.classList.remove('active');
+            }, 300);
+        });
     });
 }
 
@@ -174,7 +256,7 @@ sections.forEach(section => {
 });
 
 // ============================================
-// 6. 技能進度條動畫
+// 8. 技能進度條動畫
 // ============================================
 
 const skillBars = document.querySelectorAll('.skill-progress');
@@ -200,7 +282,7 @@ skillBars.forEach(bar => {
 });
 
 // ============================================
-// 6. 性格特質標籤動畫
+// 9. 性格特質標籤動畫
 // ============================================
 
 const traitTags = document.querySelectorAll('.trait-tag');
@@ -230,7 +312,7 @@ if (!document.querySelector('style[data-animation]')) {
 }
 
 // ============================================
-// 7. 頁面加載完成後的初始化
+// 10. 頁面加載完成後的初始化
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
